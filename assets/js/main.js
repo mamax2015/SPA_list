@@ -102,7 +102,7 @@ class ItemList{
             }
         }
     }
-    
+
 
     createItemLayout(item){
         let saleLabel ='',
@@ -126,7 +126,7 @@ class ItemList{
                 </div>
                 ${newItemLabel}
                 ${saleLabel}
-                <h2>${item.title}</h2>
+                <h2 class="pt-3 pb-3">${item.title}</h2>
                 <div class="item-describe">$${item.description}</div>
                 <div class="item-prices">
                     <span class="current-price">$${price}</span> 

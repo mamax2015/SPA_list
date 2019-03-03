@@ -1,5 +1,11 @@
 $red: #ed1111;
 $textGray: #a5a4a4;
+$gray: #333333;
+$lightGray: #e5e5e5;
+$bgGray: #ed8e8e;
+$btnViewColor:#999e9f;
+$btnViewBgColor:#d9d9d9;
+
 
 body{
   font-family: 'Ubuntu', sans-serif;
@@ -38,9 +44,12 @@ body{
 
 .item{
 
-  height:441px;
+  .loading &{
+    height:441px;
+  }
+
   position: relative;
-  border: 1px solid #e5e5e5;
+  border: 1px solid $lightGray;
   padding: 10px;
   margin:0 auto 45px;
   width:270px;
@@ -48,8 +57,7 @@ body{
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35); 
   }
   h2{
-    color: #333333;
-    line-height: 3;
+    color: $gray;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 500;
@@ -65,8 +73,9 @@ body{
     top:95px;
     width: 70px;
     height: 40px;
-    line-height: 40px;
-    font: 300 13px/40px;
+    font-weight: 300; 
+    font-size:13px;
+    line-height:40px;
     text-transform: uppercase;
     color:white;
     text-align: center;
@@ -87,11 +96,11 @@ body{
     text-align: center;
     // width:100%;
     height:250px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid $lightGray;
     padding:10px;
     img{
-      height: 100%;
-      max-width:100%;
+      // height: 100%;
+      // max-width:100%;
     }
   }
   .item-prices{
@@ -116,17 +125,16 @@ body{
       font-weight: 400;      
       color: $red;
       &:hover{
-        background-color: #ed8e8e;
+        background-color: $bgGray;
       }
     }
     &.btn-view{
       font-size:12px;
       font-weight: 300;
-      color:#999e9f;
-      background-color: #d9d9d9;
-      &:hover{
-      }
+      color:$btnViewColor;
+      background-color: $btnViewBgColor;      
     }
+
 
   }
  
@@ -150,32 +158,29 @@ div.spiner-holder{
 
 .btn{
   border-radius: 0;
-  border: 1px solid #e5e5e5;
+  border: 1px solid $lightGray;
   &.btn-load-more{
     font-size:13px;
     font-weight: 400;      
     color: $red; 
     text-transform: uppercase;  
     &:hover{
-      background-color: #ed8e8e;
+      background-color: $bgGray;
     }     
   }
 }
 .hot-offers{
 
-  .icon{
-    width:35px;
-    text-align:center;
-  }
+
   .hot-offer-block{
-    border:1px solid #e5e5e5;
+    border:1px solid $lightGray;
     padding:35px 25px;
     min-height:308px;
     &.store p{
       padding-bottom:0;
       margin-bottom:0;
 
-  }
+    }
   }
   color:$textGray;
   h3{
@@ -183,18 +188,20 @@ div.spiner-holder{
     line-height:35px;
     font-stretch: condensed;
     text-transform:uppercase; 
-    color:#333333;
+    color:$gray;
   }
   p{
     font-size:11px;
     line-height:15px;
     margin-bottom: .5rem;
-    i {
-      color:#ed1111;
-      font-size:25px; 
-      margin-right:10px;
-    }    
   }
+  i {
+    width:35px;
+    text-align:center;  
+    color:$red;
+    font-size:25px; 
+    margin-right:10px;
+  }    
   ul{
     font-size:11px;
     line-height:15px;

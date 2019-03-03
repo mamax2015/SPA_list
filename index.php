@@ -29,7 +29,7 @@
                             <div class="label new">New</div>
                         <?php endif; ?>
 
-                        <h2><?php echo $item['title']; ?></h2>
+                        <h2 class="pt-3 pb-3"><?php echo $item['title']; ?></h2>
                         <div class="item-describe"><?php echo $item['description']; ?></div>
                         <div class="item-prices">
                             <span class="current-price">$<?php echo $item['discountCost'] ? $item['discountCost'] : $item['cost']; ?></span> 
@@ -95,32 +95,32 @@
           <div class="company-detailes mb-4">
             <div class="d-flex align-items-center">
 
-            <div class="icon"><p><i class="fas fa-map-marker-alt"></i></p></div>
-            <div><p>Company Inc., 8901 Marmora Road, Glasgow, D04 89GR</p></div>
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Company Inc., 8901 Marmora Road, Glasgow, D04 89GR</p>
           </div>
           </div> 
           <div class="company-detailes mb-4">
             <div class="d-flex align-items-center">
 
-            <div class="icon"><p><i class="fas fa-phone"></i></p></div>
-            <div><p>Call us now toll free: (800) 2345-6789</p></div>
+            <i class="fas fa-phone"></i>
+            <p>Call us now toll free: (800) 2345-6789</p>
           </div>
           </div> 
           <div class="company-detailes mb-4">
             <div class="d-flex align-items-center">
 
-            <div class="icon"><p><i class="far fa-envelope"></i></p></div>
-            <div><p>Customer support: support@example.com
+            <i class="far fa-envelope"></i>
+            <p>Customer support: support@example.com
                                   <br>Press: pressroom@example.com</p>
-            </div>
+            
             </div>
             
           </div>
           <div class="company-detailes mb-4">
             <div class="d-flex align-items-center">
 
-            <div class="icon"><p><i class="fab fa-skype"></i></p></div>
-            <div><p>Skype: sample-username</p></div>
+            <i class="fab fa-skype"></i>
+            <p>Skype: sample-username</p>
           </div>
           </div> 
         </div>      
@@ -133,6 +133,7 @@
   </footer>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="public/main.css">
 
