@@ -102,6 +102,7 @@ class ItemList{
             }
         }
     }
+    
 
     createItemLayout(item){
         let saleLabel ='',
