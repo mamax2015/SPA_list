@@ -1,8 +1,7 @@
 <?php
     require __DIR__ . "/model.php";
 ?>
-
-
+<!DOCTYPE html>
 <html>
 <head>
   <title>Requestum store</title>
@@ -64,30 +63,30 @@
         <div class="hot-offer-block"> 
           <h3>hot offers</h3>
           <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue.</p>
-          <p> 
-            <ul>  
-              <li>Vestibulum ante ipsum primis in faucibus orci luctus</li>
-              <li>Nam elit magna hendrerit sit amet tincidunt ac</li>
-              <li>Quisque diam lorem interdum vitae dapibus ac scele</li>
-              <li>Donec eget tellus non erat lacinia fermentum</li>
-              <li>Donec in velit vel ipsum auctor pulvin            </li>
-            </ul>
-          </p>
+          
+          <ul>  
+            <li>Vestibulum ante ipsum primis in faucibus orci luctus</li>
+            <li>Nam elit magna hendrerit sit amet tincidunt ac</li>
+            <li>Quisque diam lorem interdum vitae dapibus ac scele</li>
+            <li>Donec eget tellus non erat lacinia fermentum</li>
+            <li>Donec in velit vel ipsum auctor pulvin            </li>
+          </ul>
+          
         </div>
         </div>
         <div class="col-xl-4 col-md-12 mb-4"> 
         <div class="hot-offer-block"> 
           <h3>hot offers</h3>
           <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Suspendisse sollicitudin velit sed leo. Ut pharetra augue nec augue.</p>
-          <p> 
-            <ul>  
-              <li>Vestibulum ante ipsum primis in faucibus orci luctus</li>
-              <li>Nam elit magna hendrerit sit amet tincidunt ac</li>
-              <li>Quisque diam lorem interdum vitae dapibus ac scele</li>
-              <li>Donec eget tellus non erat lacinia fermentum</li>
-              <li>Donec in velit vel ipsum auctor pulvin            </li>
-            </ul>
-          </p>
+          
+          <ul>  
+            <li>Vestibulum ante ipsum primis in faucibus orci luctus</li>
+            <li>Nam elit magna hendrerit sit amet tincidunt ac</li>
+            <li>Quisque diam lorem interdum vitae dapibus ac scele</li>
+            <li>Donec eget tellus non erat lacinia fermentum</li>
+            <li>Donec in velit vel ipsum auctor pulvin            </li>
+          </ul>
+          
         </div>
         </div>
         <div class="col-xl-4 col-md-12 mb-4"> 

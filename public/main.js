@@ -14,13 +14,16 @@ class ItemList{
         this.init();        
     }
 
-    init = () => {
+    init(){
         this.loadMoreButton = document.getElementById("loadMoreButton");
-        loadMoreButton.addEventListener("click", this.showItems);
+        const showItems = () => {
+            this.showItems();
+        }
+        loadMoreButton.addEventListener("click", showItems);
         this.getItems();
     }
 
-    getItems = () => {
+    getItems(){
         if(this.gettingData){
             this.loadNextPageImmediately = true;
             return false;
@@ -57,7 +60,7 @@ class ItemList{
         });
     }
 
-    appendItems = (itemsObj) => {
+    appendItems(itemsObj){
         let items = itemsObj.entities;
         for( let i=0; i<items.length; i++){
             let itemMarkup = this.createItemLayout(items[i]);
@@ -79,7 +82,7 @@ class ItemList{
 
     }
 
-    opcityElement(elem,action,eletTodelete) {
+    opcityElement(elem,action,eletTodelete){
       let opacityValue = parseInt(getComputedStyle(elem).opacity);
       let timer = setInterval(frame, 10);
       let step = -0.025;
@@ -100,7 +103,7 @@ class ItemList{
     }
    
 
-    createItemLayout = (item) => {
+    createItemLayout(item){
         let saleLabel ='',
             newItemLabel ='',
             price = item.cost,
@@ -135,14 +138,14 @@ class ItemList{
         `;
     }
 
-    appendLoadings = () => {
+    appendLoadings(){
         let loadingMarkup;
         for( let i=0; i<this.perPage; i++){
             loadingMarkup = this.createLoadingLayout();
             this.itemPlace.insertAdjacentHTML('beforeend',loadingMarkup);
         }
     }
-    createLoadingLayout = () => {
+    createLoadingLayout(){
         return `<div class="col-xl-3 col-sm-6 item-container loading hidden" style="max-height:0px; opacity:0;">
           <div class="item d-flex align-items-center text-center">
             <div class="spiner-holder">
@@ -152,7 +155,7 @@ class ItemList{
         </div>`;        
     }
 
-    showItems = () => {
+    showItems(){
         let appendedAndHiddenItems = this.itemPlace.querySelectorAll(".item-container.hidden");
         appendedAndHiddenItems.forEach(function(item) {
             item.style.maxHeight = "500px";            
@@ -162,7 +165,7 @@ class ItemList{
         this.getItems();
     }
 
-    areThereMoreItems = () => {
+    areThereMoreItems(){
         if(this.lastItemsQuantityLoaded < this.perPage){
             return false;
         }
@@ -172,7 +175,7 @@ class ItemList{
         return true;
     }
 
-    hideLoadMoreButton = () => {
+    hideLoadMoreButton(){
         this.loadMoreButton.classList.add("d-none");
     }
 
