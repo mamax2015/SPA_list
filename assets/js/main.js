@@ -15,11 +15,11 @@ class ItemList{
     }
 
     init(){
-        this.loadMoreButton = document.getElementById("loadMoreButton");
+        this.loadMoreButton = document.getElementById("load-more-button");
         const showItems = () => {
             this.showItems();
         }
-        loadMoreButton.addEventListener("click", showItems);
+        this.loadMoreButton.addEventListener("click", showItems);
         this.getItems();
     }
 
@@ -37,16 +37,15 @@ class ItemList{
         }
         this.gettingData = true; 
         this.appendLoadings();
-
-        fetch('/list.php?page=' + this.nextPage + '&per_page=' +  this.perPage ,{
-            methos: "GET",
+        const url = `/list.php?page=${this.nextPage}&per_page=${this.perPage}`;        
+        const options = {
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             }
-        }).then((response) => {      
+        };
+        fetch(url, options).then((response) => {      
             return response.json();
         }).then((items) => {
-
             this.gettingData = false;                        
             this.lastItemsQuantityLoaded = items.entities.length;
             this.itemsTotal = items.total;
@@ -61,47 +60,46 @@ class ItemList{
     }
 
     appendItems(itemsObj){
-        let items = itemsObj.entities;
+        const items = itemsObj.entities;
         for( let i=0; i<items.length; i++){
-            let itemMarkup = this.createItemLayout(items[i]);
-            let placeForItem = this.itemPlace.querySelector(".item-container.loading");
-            let itemHolder = placeForItem.querySelector(".item")
+            const itemMarkup = this.createItemLayout(items[i]);
+            const placeForItem = this.itemPlace.querySelector(".item-container.loading");
+            const itemHolder = placeForItem.querySelector(".item")
             itemHolder.insertAdjacentHTML('beforeend',itemMarkup);
             itemHolder.classList.remove("d-flex", "align-items-center", "text-center");
-            let spiner = placeForItem.querySelector(".spiner-holder");
-            this.opcityElement(spiner,'hide',spiner);
-            let itemLoading = placeForItem.querySelector(".item-loading");
-            this.opcityElement(itemLoading,'show');
+            const spiner = placeForItem.querySelector(".spiner-holder");
+            this.changeOpacityElement(spiner,'hide',spiner);
+            const itemLoading = placeForItem.querySelector(".item-loading");
+            this.changeOpacityElement(itemLoading,'show');
             placeForItem.classList.remove("loading");
 
         }
-        let loadingItemsExcessive = this.itemPlace.querySelectorAll(".item-container.loading");
+        const loadingItemsExcessive = this.itemPlace.querySelectorAll(".item-container.loading");
         for(let i=0; i<loadingItemsExcessive.length; i++){
             loadingItemsExcessive[i].parentNode.removeChild(loadingItemsExcessive[i]);
         }
 
     }
 
-    opcityElement(elem,action,eletTodelete){
-      let opacityValue = parseInt(getComputedStyle(elem).opacity);
-      let timer = setInterval(frame, 10);
-      let step = -0.025;
-      if(action === 'show'){
-        step = 0.025;
-      }
-      function frame() {
-        if (opacityValue <= 0 && action == 'hide' || opacityValue >= 1 && action == 'show') {
-          clearInterval(timer);
-          if(eletTodelete){
-            eletTodelete.parentNode.removeChild(eletTodelete);            
-          }
-        } else {
-          opacityValue = opacityValue + step;
-          elem.style.opacity = opacityValue; 
+    changeOpacityElement(elem,action,elemToDelete){
+        let opacityValue = parseInt(getComputedStyle(elem).opacity);
+        const timer = setInterval(frame, 10);
+        let step = -0.025;
+        if(action === 'show'){
+            step = 0.025;
         }
-      }
+        function frame() {
+            if (opacityValue <= 0 && action == 'hide' || opacityValue >= 1 && action == 'show') {
+                clearInterval(timer);
+                if(elemToDelete){
+                    elemToDelete.parentNode.removeChild(elemToDelete);            
+                }
+            } else {
+                opacityValue = opacityValue + step;
+                elem.style.opacity = opacityValue; 
+            }
+        }
     }
-   
 
     createItemLayout(item){
         let saleLabel ='',
@@ -139,12 +137,13 @@ class ItemList{
     }
 
     appendLoadings(){
-        let loadingMarkup;
+        let loadingMarkup = '';
         for( let i=0; i<this.perPage; i++){
             loadingMarkup = this.createLoadingLayout();
             this.itemPlace.insertAdjacentHTML('beforeend',loadingMarkup);
         }
     }
+
     createLoadingLayout(){
         return `<div class="col-xl-3 col-sm-6 item-container loading hidden" style="max-height:0px; opacity:0;">
           <div class="item d-flex align-items-center text-center">
@@ -155,13 +154,15 @@ class ItemList{
         </div>`;        
     }
 
+    showOneItem(item){
+        item.style.maxHeight = "500px";            
+        item.style.opacity = "1";            
+        item.classList.remove("hidden");        
+    }
+
     showItems(){
-        let appendedAndHiddenItems = this.itemPlace.querySelectorAll(".item-container.hidden");
-        appendedAndHiddenItems.forEach(function(item) {
-            item.style.maxHeight = "500px";            
-            item.style.opacity = "1";            
-            item.classList.remove("hidden");
-        });        
+        const appendedAndHiddenItems = this.itemPlace.querySelectorAll(".item-container.hidden");
+        appendedAndHiddenItems.forEach(this.showOneItem);
         this.getItems();
     }
 
@@ -178,10 +179,8 @@ class ItemList{
     hideLoadMoreButton(){
         this.loadMoreButton.classList.add("d-none");
     }
-
-
 }
 
 
-let itemList = new ItemList("appList",1,2);
+const itemList = new ItemList("appList",1,2);
 

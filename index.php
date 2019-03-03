@@ -52,7 +52,7 @@
     </div>
 
     <div class="text-center mb-5 load-more-button">
-      <button class="btn btn-load-more" id="loadMoreButton">load more</button>
+      <button class="btn btn-load-more" id="load-more-button">load more</button>
     </div>
     
   </section>
