@@ -1,5 +1,7 @@
 "use strict";
 
+import '../css/style.scss';
+
 class ItemList{
     constructor(appId, page, perPage) {
         this.curPage = page;
@@ -145,7 +147,7 @@ class ItemList{
     }
 
     createLoadingLayout(){
-        return `<div class="col-xl-3 col-sm-6 item-container loading hidden" style="max-height:0px; opacity:0;">
+        return `<div class="col-xl-3 col-sm-6 item-container loading hidden">
           <div class="item d-flex align-items-center text-center">
             <div class="spiner-holder">
               <div class="spiner"><i class="fas fa-spinner fa-spin"></i></div>
